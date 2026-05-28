@@ -1,0 +1,23 @@
+{
+  "name": "SH PERFECTION LLC",
+  "short_name": "SH PERFECTION",
+  "description": "Premium landscaping service for upscale residences in Metro Atlanta, including expert grass cutting and lawn care.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#C9A84C",
+  "icons": [
+    {
+      "src": "/public/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/public/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
