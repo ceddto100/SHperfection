@@ -58,10 +58,9 @@
 </script>
 
 <!-- ===== Favicon ===== -->
-<link rel="icon" type="image/png" href="/public/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
-<link rel="shortcut icon" href="/public/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png" />
+<link rel="icon" type="image/png" href="/public/Sh_logo.png" sizes="96x96" />
+<link rel="shortcut icon" href="/public/Sh_logo.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/public/Sh_logo.png" />
 <meta name="apple-mobile-web-app-title" content="SH PERFECTION LLC" />
 <link rel="manifest" href="/public/site.webmanifest" />
 
@@ -182,9 +181,10 @@ p { color: var(--text-mid); }
 .nav.scrolled { padding: 9px 0; box-shadow: 0 4px 28px rgba(0,0,0,0.3); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; }
 
-.brand { display: flex; align-items: center; gap: 10px; color: var(--white); font-family: var(--heading); font-size: 18px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
-.brand .mark { width: 34px; height: 34px; background: var(--white); border-radius: 5px; display: grid; place-items: center; color: var(--green); font-size: 18px; font-weight: 700; line-height: 1; }
-.brand .mark-b { background: var(--blue); color: var(--white); }
+.brand { display: flex; align-items: center; }
+.brand-logo { height: 44px; width: auto; display: block; transition: height 0.4s var(--ease); }
+.nav.scrolled .brand-logo { height: 36px; }
+.footer-logo-img { height: 64px; width: auto; display: block; }
 
 .nav-links { display: flex; gap: 28px; }
 .nav-links a { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.82); font-weight: 600; transition: color 0.3s; position: relative; }
@@ -551,8 +551,7 @@ footer { background: var(--dark); padding: 64px 0 32px; }
 <header class="nav" id="nav">
   <div class="container nav-inner">
     <a href="#top" class="brand" aria-label="SH Perfection LLC home">
-      <span class="mark">S</span><span class="mark mark-b">H</span>
-      SH&nbsp;PERFECTION&nbsp;LLC
+      <img src="/public/Sh_logo.png" alt="SH Perfection LLC" class="brand-logo">
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#services">Lawn Care</a>
@@ -942,7 +941,7 @@ footer { background: var(--dark); padding: 64px 0 32px; }
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="f-logo">SH <span class="green">PERFECTION</span> LLC</div>
+        <div class="f-logo"><img src="/public/Sh_logo.png" alt="SH Perfection LLC" class="footer-logo-img"></div>
         <div class="f-tagline">Clean Spaces. Perfect Places.</div>
         <p>Professional lawn care and pressure washing serving Metro Atlanta. We take pride in every job.</p>
       </div>
