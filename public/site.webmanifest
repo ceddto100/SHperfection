@@ -1,23 +1,18 @@
 {
   "name": "SH PERFECTION LLC",
-  "short_name": "SH PERFECTION",
-  "description": "Premium landscaping service for upscale residences in Metro Atlanta, including expert grass cutting and lawn care.",
+  "short_name": "SH Perfection",
+  "description": "Reliable lawn care and pressure washing services for Metro Atlanta homes and properties.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#0A0A0A",
-  "theme_color": "#C9A84C",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1B5E20",
   "icons": [
     {
-      "src": "/public/web-app-manifest-192x192.png",
-      "sizes": "192x192",
+      "src": "/public/Sh_logo.png",
+      "sizes": "any",
       "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/public/web-app-manifest-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ]
 }
