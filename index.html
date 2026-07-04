@@ -109,7 +109,7 @@
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Lawn Care and Pressure Washing Services",
+        "name": "Lawn Care, Pressure Washing, and Commercial Property Services",
         "itemListElement": [
           {
             "@type": "OfferCatalog",
@@ -131,6 +131,17 @@
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Patio and Deck Washing" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fence Washing" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gutter Cleaning" } }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Commercial Property Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Landscaping and Grounds Maintenance" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Parking Lot Pressure Washing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Storefront and Entrance Cleaning" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Building Exterior Washing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "HOA and Property Management Services" } }
             ]
           }
         ]
@@ -197,8 +208,12 @@ ul { list-style: none; }
   --border:       rgba(27,94,32,0.15);
   --gold:         #F9A825;
   --gold-star:    #FFB300;
+  --slate:        #37474F;
+  --slate-mid:    #455A64;
+  --slate-light:  #ECEFF1;
   --shadow-g:     0 8px 32px rgba(27,94,32,0.18);
   --shadow-b:     0 8px 32px rgba(13,71,161,0.18);
+  --shadow-s:     0 8px 32px rgba(55,71,79,0.18);
 
   --heading: 'Oswald', 'Impact', 'Arial Black', sans-serif;
   --sans:    'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif;
@@ -423,13 +438,15 @@ p { color: var(--text-mid); }
 .services-head h2 { font-size: clamp(34px, 5vw, 68px); }
 .services-head p { max-width: 580px; margin: 16px auto 0; font-size: 17px; }
 
-.services-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.services-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+@media (max-width: 1000px) { .services-columns { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 760px) { .services-columns { grid-template-columns: 1fr; } }
 
 .service-col { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.1); }
 .service-col-header { padding: 26px 30px; display: flex; align-items: center; gap: 14px; }
 .service-col.lawn .service-col-header { background: var(--green); }
 .service-col.wash .service-col-header { background: var(--blue); }
+.service-col.commercial .service-col-header { background: var(--slate); }
 .service-col-header .col-icon { font-size: 28px; width: 52px; height: 52px; background: rgba(255,255,255,0.18); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .service-col-header h3 { font-size: 20px; color: var(--white); font-weight: 700; letter-spacing: 0.08em; line-height: 1.2; }
 
@@ -440,11 +457,14 @@ p { color: var(--text-mid); }
 .svc-list li .chk { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; line-height: 1; }
 .service-col.lawn  .svc-list li .chk { background: var(--green-light); color: var(--green); }
 .service-col.wash  .svc-list li .chk { background: var(--blue-light);  color: var(--blue); }
+.service-col.commercial .svc-list li .chk { background: var(--slate-light); color: var(--slate); }
 
 .service-col-footer { padding: 18px 30px 26px; background: var(--off-white); }
 .service-col.lawn  .service-col-footer .svc-btn { background: var(--green); color: var(--white); }
 .service-col.lawn  .service-col-footer .svc-btn:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: var(--shadow-g); }
 .service-col.wash  .service-col-footer .svc-btn { background: var(--blue); color: var(--white); }
+.service-col.commercial .service-col-footer .svc-btn { background: var(--slate); color: var(--white); }
+.service-col.commercial .service-col-footer .svc-btn:hover { background: var(--slate-mid); transform: translateY(-2px); box-shadow: var(--shadow-s); }
 .service-col.wash  .service-col-footer .svc-btn:hover { background: var(--blue-mid); transform: translateY(-2px); box-shadow: var(--shadow-b); }
 .svc-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px; font-family: var(--heading); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; border-radius: var(--radius); transition: all 0.3s var(--ease); }
 
@@ -661,6 +681,7 @@ footer { background: var(--dark); padding: 64px 0 32px; }
     <nav class="nav-links" aria-label="Primary">
       <a href="#services">Lawn Care</a>
       <a href="#pressure-washing">Pressure Washing</a>
+      <a href="#commercial-property">Commercial</a>
       <a href="#process">Process</a>
       <a href="#gallery">Our Work</a>
       <a href="#contact">Contact</a>
@@ -676,9 +697,10 @@ footer { background: var(--dark); padding: 64px 0 32px; }
 <div class="drawer" id="drawer" aria-hidden="true">
   <a href="#services"><span class="num">01</span>Lawn Care</a>
   <a href="#pressure-washing"><span class="num">02</span>Pressure Wash</a>
-  <a href="#process"><span class="num">03</span>Process</a>
-  <a href="#gallery"><span class="num">04</span>Our Work</a>
-  <a href="#contact"><span class="num">05</span>Contact</a>
+  <a href="#commercial-property"><span class="num">03</span>Commercial</a>
+  <a href="#process"><span class="num">04</span>Process</a>
+  <a href="#gallery"><span class="num">05</span>Our Work</a>
+  <a href="#contact"><span class="num">06</span>Contact</a>
 </div>
 
 <main id="main-content">
@@ -756,7 +778,7 @@ footer { background: var(--dark); padding: 64px 0 32px; }
     <div class="services-head">
       <div class="eyebrow reveal">What We Offer</div>
       <h2 class="reveal">Complete Property Care</h2>
-      <p class="reveal reveal-d2">From lush, healthy lawns to spotlessly clean surfaces — we handle it all with professional skill and attention to detail.</p>
+      <p class="reveal reveal-d2">From lush, healthy lawns to spotlessly clean surfaces — for homes and commercial properties alike — we handle it all with professional skill and attention to detail.</p>
     </div>
     <div class="services-columns">
 
@@ -804,6 +826,29 @@ footer { background: var(--dark); padding: 64px 0 32px; }
         </div>
         <div class="service-col-footer">
           <a href="#contact" class="svc-btn">Get Pressure Wash Quote &#8594;</a>
+        </div>
+      </div>
+
+      <!-- COMMERCIAL PROPERTY -->
+      <div class="service-col commercial reveal reveal-d3" id="commercial-property">
+        <div class="service-col-header">
+          <div class="col-icon">&#127970;</div>
+          <h3>Commercial Property Services</h3>
+        </div>
+        <div class="service-col-body">
+          <ul class="svc-list">
+            <li><span class="chk">&#10003;</span> Landscaping &amp; Grounds Maintenance</li>
+            <li><span class="chk">&#10003;</span> Parking Lot Pressure Washing</li>
+            <li><span class="chk">&#10003;</span> Storefront &amp; Entrance Cleaning</li>
+            <li><span class="chk">&#10003;</span> Sidewalks &amp; Walkways</li>
+            <li><span class="chk">&#10003;</span> Building Exterior Washing</li>
+            <li><span class="chk">&#10003;</span> Dumpster Pad Cleaning</li>
+            <li><span class="chk">&#10003;</span> HOA &amp; Property Management</li>
+            <li><span class="chk">&#10003;</span> And More!</li>
+          </ul>
+        </div>
+        <div class="service-col-footer">
+          <a href="#contact" class="svc-btn">Get Commercial Quote &#8594;</a>
         </div>
       </div>
 
