@@ -1053,14 +1053,32 @@ footer { background: var(--dark); padding: 64px 0 32px; }
                 <option>Fence Washing</option>
                 <option>Gutter Cleaning</option>
               </optgroup>
+              <optgroup label="Commercial Property">
+                <option>Commercial Landscaping &amp; Grounds Maintenance</option>
+                <option>Parking Lot Pressure Washing</option>
+                <option>Storefront &amp; Entrance Cleaning</option>
+                <option>Building Exterior Washing</option>
+                <option>Dumpster Pad Cleaning</option>
+                <option>HOA / Property Management</option>
+              </optgroup>
               <option>Multiple Services / Bundle</option>
               <option>Other / Consultation</option>
             </select>
           </div>
         </div>
-        <div class="field">
-          <label for="f-address">Property Address</label>
-          <input id="f-address" name="address" type="text" autocomplete="street-address" placeholder="123 Main St, Atlanta, GA" />
+        <div class="field-row">
+          <div class="field">
+            <label for="f-property-type">Property Type</label>
+            <select id="f-property-type" name="property_type" required>
+              <option value="" disabled selected>Select property type</option>
+              <option value="Residential">Residential</option>
+              <option value="Commercial">Commercial</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-address">Property Address</label>
+            <input id="f-address" name="address" type="text" autocomplete="street-address" placeholder="123 Main St, Atlanta, GA" />
+          </div>
         </div>
         <div class="field">
           <label for="f-msg">Additional Notes</label>
