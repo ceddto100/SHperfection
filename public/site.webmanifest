@@ -9,6 +9,11 @@
   "theme_color": "#1B5E20",
   "icons": [
     {
+      "src": "/public/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
       "src": "/public/Sh_logo.png",
       "sizes": "any",
       "type": "image/png",
